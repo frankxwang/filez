@@ -5,7 +5,7 @@ if(process.argv[2] == "server") {
 		socket.write('Echo server\r\n');
 		socket.pipe(socket);
 	});
-	server.listen(1337, '0.0.0.0');
+	server.listen(1337, '127.0.0.1');
 	console.log("SERVER UP");
 } else {
 	var client = new net.Socket();
