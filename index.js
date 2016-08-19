@@ -1,11 +1,11 @@
 var net = require('net');
-
+var app = require('express')();
 if(process.argv[2] == "server") {
 	var server = net.createServer(function(socket) {
 		socket.write('Echo server\r\n');
 		socket.pipe(socket);
 	});
-	server.listen(1337, '127.0.0.1');
+	server.listen(1337, '0.0.0.0');
 	console.log("SERVER UP");
 } else {
 	var client = new net.Socket();
@@ -14,9 +14,13 @@ if(process.argv[2] == "server") {
 		client.write('Hello, server! Love, Client.');
 	});
 
+	app.get('/', function(req, res){
+	  res.sendFile(process.argv[3]);
+	});
+
 	client.on('data', function(data) {
 		console.log('Received: ' + data);
-		client.destroy(); // kill client after server's response
+		//client.destroy(); // kill client after server's response
 	});
 
 	client.on('close', function() {

@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/thegithubgeek/filez/issues"
   },
-  "homepage": "https://github.com/thegithubgeek/filez#readme"
+  "homepage": "https://github.com/thegithubgeek/filez#readme",
+  "dependencies": {
+    "express": "^4.10.2",
+    "socket.io": "^1.4.8"
+  }
 }
