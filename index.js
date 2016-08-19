@@ -1,5 +1,24 @@
-var net = require('net');
 var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + "/" + process.argv[3]);
+});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
+
+http.listen(parseInt(process.argv[2]), function(){
+  console.log('listening on *: ' + process.argv[2]);
+});
+
+
+/*var app = require('express')();
 if(process.argv[2] == "server") {
 	var server = net.createServer(function(socket) {
 		socket.write('Echo server\r\n');
@@ -26,4 +45,4 @@ if(process.argv[2] == "server") {
 	client.on('close', function() {
 		console.log('Connection closed');
 	});
-}
+}*/
