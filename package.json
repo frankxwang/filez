@@ -1,0 +1,23 @@
+{
+  "name": "filez",
+  "version": "1.0.0",
+  "description": "File sharing for node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegithubgeek/filez.git"
+  },
+  "keywords": [
+    "file",
+    "sharing"
+  ],
+  "author": "thegithubgeek, tripplyons, ezrabgk",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/thegithubgeek/filez/issues"
+  },
+  "homepage": "https://github.com/thegithubgeek/filez#readme"
+}
