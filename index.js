@@ -6,6 +6,7 @@ if(process.argv[2] == "server") {
 		socket.pipe(socket);
 	});
 	server.listen(1337, '0.0.0.0');
+	console.log("SERVER UP");
 } else {
 	var client = new net.Socket();
 		client.connect(1337, process.argv[2], function() {
