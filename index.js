@@ -2,8 +2,14 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+
 app.get('/', function(req, res){
-  res.sendFile(__dirname + "/" + process.argv[3]);
+  res.sendFile(__dirname + "/Page.html");//__dirname + "/" + process.argv[3]);
+});
+
+app.get('/download', function(req, res){
+  var file = __dirname + '/' + process.argv[3];
+	res.download(file);
 });
 
 io.on('connection', function(socket){
@@ -13,10 +19,14 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(parseInt(process.argv[2]), function(){
+app.listen(parseInt(process.argv[2]), function(){
   console.log('listening on *: ' + process.argv[2]);
 });
 
+// var s = http2.createServer(/*parseInt(process.argv[2]), */function(){
+//   console.log('listening on *: ' + process.argv[2]);
+// });
+// s.listen(parseInt(process.argv[2]), '127.0.0.1');
 
 /*var app = require('express')();
 if(process.argv[2] == "server") {
