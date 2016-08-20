@@ -7,3 +7,4 @@ Connect to a different computer via Hammachi.<br />
 To let them download your file, they need to go to the url:<br />
 "[your ip address]:[port]"<br />
 and hit download.<br />
+Make sure you have downloaded node.js and socket.io(Maybe Express too)
